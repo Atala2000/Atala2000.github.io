@@ -10,11 +10,11 @@
   --text-font-2: "Kanit", sans-serif;
   --title-font-1: "Poppins", sans-serif;
   --title-font-2: "Raleway", sans-serif;
-  --title-color: hsl(0, 0%, 15%);
-  --first-color: hsl(82, 60%, 28%);
-  --text-color: hsl(0, 0%, 35%);
+  --title-color: hsl(224, 92%, 77%);
+  --first-color: hsl(0, 0%, 97%);
+  --text-color: hsl(0, 0%, 95%);
   --body-color: rgba(201, 218, 217, 0.144);
-  --container-color: hsl(192, 75%, 78%);
+  --container-color: hsl(180, 25%, 72%);
 }
 
 * {
@@ -24,11 +24,12 @@
 html {
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 
 body {
   margin: 0;
-  padding-top: 20px;
+  padding-top: 100px;
   color: black;
   background-image: linear-gradient(
     -35deg,
@@ -63,12 +64,14 @@ body {
 
 // ! Main Section
 .main-section {
-  // * Navigation Bar
+  display: flex;
+
   nav {
-    height: 100%;
-    width: 150px;
-    position: fixed;
     display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 150px;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
@@ -105,18 +108,19 @@ body {
       }
     }
   }
+
+  .alternate-navbar {
+    display: none;
+    gap: 30px;
+    width: 100%;
+  }
   // * Content section
   .main-content {
-    margin-left: 180px;
-    padding-top: 100px;
     display: flex;
-    gap: 50px;
+    padding-left: 180px;
     justify-content: center;
     flex-direction: column;
-
-    & > * {
-      flex: 1;
-    }
+    flex: 1;
   }
 }
 
@@ -331,7 +335,7 @@ body {
   height: 100%;
   display: grid;
   place-items: center;
-  margin-inline: 1.5rem;
+  margin-inline: 2rem;
   padding-block: 5rem;
 
   #projects-container {
@@ -339,7 +343,7 @@ body {
     row-gap: 3.5rem;
 
     .projects__title {
-      font-size: 2em;
+      font-size: 1.5em;
     }
   }
 
@@ -406,12 +410,13 @@ body {
   }
 
   .card__img {
-    width: 328px;
+    max-width: 328px;
+    height: 100%;
     border-radius: 1.5rem;
   }
 
   .card__data {
-    width: 280px;
+    max-width: 280px;
     background-color: var(--container-color);
     padding: 1.5rem 2rem;
     box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
@@ -456,38 +461,79 @@ footer {
   margin-right: 30px;
 }
 
+.card__modal {
+  display: none;
+}
 // ! Responsive Design
 
 // small devices
-@media screen and (max-width: 340px) {
-  #page-intro {
-    .text-description {
-      width: 80%;
-      left: 10px;
+@media screen and (max-width: 768px) {
+  .main-section {
+    font-size: 1rem;
+    nav {
+      display: none;
     }
 
-    #developer-image {
-      right: 100px;
+    .alternate-navbar {
+      display: flex;
+      position: fixed;
+      top: 0;
+      gap: 30px;
+      font-size: 0.75rem;
+      background-color: rgb(39, 39, 39);
+      padding: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 4px 4px rgba(63, 63, 63, 0.288);
+      z-index: 1;
+
+      & a {
+        text-decoration: none;
+        color: white;
+        font-family: var(--text-font-1);
+
+        .alt__icons {
+          margin-left: 0.5rem;
+        }
+      }
     }
 
-    #blob_1 {
-      height: 150px;
-      width: 50;
+    .main-content {
+      padding-left: 0;
     }
-  }
+    #page-intro {
+      #developer-image {
+        display: none;
+      }
 
-  #projects {
-    margin-inline: 1rem;
-  }
+      #blob_1 {
+        display: none;
+      }
 
-  .card__data {
-    width: 250px;
-    padding: 1rem;
+      #contact-details {
+        display: none;
+      }
+    }
+
+    #about-me {
+      #blob_2 {
+        display: none;
+      }
+    }
+
+    #projects {
+      margin-inline: 1rem;
+    }
+
+    .card__data {
+      width: 250px;
+      padding: 1rem;
+    }
   }
 }
 
 // medium devices
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #projects-container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
@@ -496,9 +542,6 @@ footer {
 
 // large devices
 @media screen and (min-width: 1120px) {
-  #projects {
-  }
-
   #projects-container {
     grid-template-columns: repeat(3, 1fr);
   }
