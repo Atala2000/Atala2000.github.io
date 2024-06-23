@@ -10,11 +10,11 @@
   --text-font-2: "Kanit", sans-serif;
   --title-font-1: "Poppins", sans-serif;
   --title-font-2: "Raleway", sans-serif;
-  --title-color: hsl(224, 92%, 77%);
+  --title-color: hsl(0, 0%, 15%);
   --first-color: hsl(0, 0%, 97%);
-  --text-color: hsl(0, 0%, 95%);
+  --text-color: hsl(0, 2%, 9%);
   --body-color: rgba(201, 218, 217, 0.144);
-  --container-color: hsl(180, 25%, 72%);
+  --container-color: #7dd6e6;
 }
 
 * {
@@ -127,8 +127,6 @@ body {
       display: flex;
       padding: 30px;
       flex-wrap: wrap;
-
-
 
       header {
         bottom: 0;
@@ -273,9 +271,17 @@ body {
         gap: 50px;
         padding: 10px;
 
+        .contact__link :hover {
+          color: grey;
+          transition: 0.3s ease-in-out;
+
+        }
+
         .contact_links {
           margin-right: 0.75em;
           font-size: 1em;
+
+
         }
 
         & a {
@@ -481,101 +487,102 @@ footer {
     .title-highlight {
       font-size: 1.7em;
     }
-  }
-  .main-section {
-    nav {
-      display: none;
-    }
 
-    .alternate-navbar {
-      display: flex;
-      position: fixed;
-      top: 0;
-      gap: 30px;
-      font-size: 0.75rem;
-      background-color: rgb(39, 39, 39);
-      padding: 1rem;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 0 4px 4px rgba(63, 63, 63, 0.288);
-      z-index: 1;
-
-      & a {
-        text-decoration: none;
-        color: white;
-        font-family: var(--text-font-1);
-        margin-left: 1rem;
-
-        .alt__icons {
-          margin: 0.25rem;
-        }
-
-        &:hover {
-          
+    .main-section {
+      nav {
+        display: none;
+      }
+  
+      .alternate-navbar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        gap: 30px;
+        font-size: 0.75rem;
+        background-color: rgb(39, 39, 39);
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 4px 4px rgba(63, 63, 63, 0.288);
+        z-index: 1;
+  
+        & a {
+          text-decoration: none;
+          color: white;
+          font-family: var(--text-font-1);
+          margin-left: 1rem;
+  
+          .alt__icons {
+            margin: 0.25rem;
+          }
+  
+          &:hover {
             color: cyan;
+          }
         }
       }
-    }
-
-    .main-content {
-      padding-left: 0;
-
-      #page-intro {
-        & > * {
-          flex: 1;
-        }
-        #developer-image {
-          display: none;
-
-          header {
-            font-family: sans-serif;
-            color: rgb(12, 12, 12);
-            width: 100%;
-            font-size: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-
-            h1 {
-              font-family: var(--title-font-2);
-
-              .intro__title {
-                font-size: 1rem;
+  
+      .main-content {
+        padding-left: 0;
+  
+        #page-intro {
+          & > * {
+            flex: 1;
+          }
+          #developer-image {
+            display: none;
+  
+            header {
+              font-family: sans-serif;
+              color: rgb(12, 12, 12);
+              width: 100%;
+              font-size: 1.5rem;
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: column;
+  
+              h1 {
+                font-family: var(--title-font-2);
+  
+                .intro__title {
+                  font-size: 1rem;
+                }
               }
             }
+  
+            .intro-buttons {
+              display: flex;
+            }
           }
-
-          .intro-buttons {
-            display: flex;
+  
+          #blob_1 {
+            display: none;
+          }
+  
+          #contact-details {
+            display: none;
           }
         }
-
-        #blob_1 {
-          display: none;
+  
+        #about-me {
+          #blob_2 {
+            display: none;
+          }
         }
-
-        #contact-details {
-          display: none;
+  
+        #projects {
+          margin-inline: 1rem;
         }
-      }
-
-      #about-me {
-        #blob_2 {
-          display: none;
+  
+        .card__data {
+          width: 250px;
+          padding: 1rem;
         }
-      }
-
-      #projects {
-        margin-inline: 1rem;
-      }
-
-      .card__data {
-        width: 250px;
-        padding: 1rem;
       }
     }
   }
 }
+
 
 // medium devices
 @media screen and (min-width: 768px) and (max-width: 1024px) {
